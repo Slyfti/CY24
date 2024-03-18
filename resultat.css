@@ -1,0 +1,117 @@
+
+/* SECONDE PAGE*/ 
+body {
+    background: linear-gradient(-0.75turn, #6f00ff, #5c3a8a);
+}
+
+.image_tel {
+    display: none;
+    width: 25%;
+}
+
+.interface {
+    align-self: center;
+    margin: 2.5%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    height: 80%;
+}
+  
+  fieldset {
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    border: none;
+    align-content: center;
+    align-items: center;
+  }
+  
+  fieldset > .equipe {
+    width: 100%;
+    margin: 0px;
+    padding:0px;
+  }
+  
+  .interface > nav {
+    justify-self: center;
+    align-self: unset;
+    margin: 0px;
+    background-image: url("img/topography3.webp");
+  }
+  
+  fieldset > nav {
+    width: 100%;
+    justify-self: center;
+    align-self: unset;
+    margin: 0px;
+    padding: unset;
+    background-image: url("img/topography3.webp");
+  }
+  
+  fieldset > .equipe > div > div > .carte {
+    width: 100%;  
+    justify-self: center;
+    cursor:default;
+  }
+  
+  fieldset > .equipe > div > div > .carte:hover {
+    transform: scale(1);
+  }
+  
+  fieldset > .equipe > div > div > .carte > .overlay::before {
+    opacity: 0;
+  }
+
+  @media screen and (max-width: 1200px) {
+    .interface {
+      flex-direction: column-reverse;
+      justify-items: center;
+      align-items: center;
+      align-content: space-around;
+      
+    }
+
+    fieldset {
+        width: 80%;
+    }
+
+    .image_haut {
+      display: none;
+    }
+    nav {
+      margin: 0%;
+      width: 100%;
+      align-self: center;
+      background: none;
+    }
+  
+    .selection {
+      align-items: start;
+      align-content: start;
+      flex-wrap: wrap;
+    }
+  
+    .equipe {
+      margin:0px;
+      width: 100%;
+    }
+  
+    .bouton {
+      font-size: 16px;
+    }
+  
+    .joueur {
+      height: 140px;
+    }
+
+    .image_tel {
+        display: block;
+        width: 25%;
+    }
+  
+  
+  }

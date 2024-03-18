@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>CY24 ⚽ </title>
+		<link rel ="stylesheet" type="text/css" href="style.css"/>
+		<link rel="icon" type="image/x-icon" href="img/CY24.png">
+		<meta charset="utf-8">
+	</head>
+	<body>
+		
+		
+		
+        <div class="interface">
+            <nav>
+                <img src="img/CY24.png" class="image_haut"/>
+                <h2>SELECTION DE L'ÉQUIPE</h2>
+                <h3>CONCOCTEZ VOTRE BRIGADE FANTASMAGORIQUE ™</h3>
+                <form id="menu" name="menu" action="resultat.html" method="GET">
+                    <label id = "infos" name= "infos">
+
+                    </label>
+                    <input type="text" class="bouton" placeholder="NOM DE L'ÉQUIPE" name="nom_equipe">
+                    <select onchange="afficherJoueurs(Event)" name="categorie" class="bouton" id="categorie">
+                        <option value="joueursH">MASCULIN</option>
+                        <option value="joueursF">FÉMININ</option>
+                    </select> 
+                    <select name="compo" class="bouton" id="compo" onchange="miseAJourCompo()">
+                        <option value="4,4,2">4-4-2</option>
+                        <option value="4,3,3">4-3-3</option>
+                        <option value="5,3,2">5-3-2</option>
+                    </select>  
+                    <input type="reset" id="reset" class="bouton" value="RÉINITIALISER" onclick="reinitialiser()">
+                    <input type="button" onclick="envoyer()" class="bouton" value="VALIDER">
+                
+                </form>
+            </nav>
+
+		    <div class="equipe">
+                
+            </div>
+        </div>
+        
+        <div class="selection" id="joueursH" onWheel= "this.scrollLeft+=event.deltaY>0?100:-100"></div>
+		
+		<script type="text/javascript" src="fifa.js"></script>
+	</body>
+</html>
+

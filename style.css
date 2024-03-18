@@ -1,0 +1,372 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Sixtyfour&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+@keyframes rotation{
+  0% {
+      transform: rotate3d(0,1,0,0deg);
+  }
+
+  100% {
+      transform: rotate3d(0,1,0,360deg);
+  }
+}
+
+
+
+body {
+  overflow-x:hidden;
+  font-family:'Dosis','Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(0.75turn, #6f00ff, #868cec);
+  min-width: 750px;
+  
+}
+
+
+
+
+h1{
+  margin-left:5px;
+	font-family: 'Montserrat', sans-serif;
+  color:rgb(0, 0, 0);
+  text-shadow: rgb(255, 255, 255) 2px 3px;
+}
+
+h2 {
+  margin-left:5px;
+
+	font-family: 'Montserrat', sans-serif;
+  color: rgb(255, 255, 255);
+  text-shadow: #ffa319 2px 2px;
+    
+}
+
+h3{
+  margin: 5px;
+	font-family: 'Montserrat', sans-serif;
+  color: rgb(255, 255, 255);
+}
+
+
+.image_haut {
+  width: 70%;
+  align-self: center;
+  justify-self: center;
+}
+
+
+
+/* ref: https://www.youtube.com/watch?time_continue=3&v=p9nBDZisuio&embeds_referring_euri=https%3A%2F%2Fwww.dhnet.be%2F&source_ve_path=MTM5MTE3LDIzODUx&feature=emb_title */ 
+
+
+.joueur{
+  height: 140px; /* Définit la taille de la carte (important) */
+}
+
+.overlay {
+  height: 100%;
+  width: 105%;
+  position: relative;
+}
+.overlay:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -4.5%;
+  height: 100%;
+  width: 105%;
+  transition: all 0.1s;
+  opacity: 0;
+  background-position: center;
+  background-repeat: no-repeat;
+  background: url(img/overlay3.webp);
+  background-size: 100% 100%;
+  filter: grayscale(100%) brightness(200%);
+  overflow: visible;
+
+}
+.overlay:hover:before {
+  opacity: 1;
+}
+
+/* CARTE (englobe l'image et l'overlay)*/
+.carte {
+  flex-shrink: 0;
+  transition: all 0.25s;
+}
+
+.carte:hover {
+  cursor: pointer;
+  z-index: 3;
+
+  
+  transform: scale(1.2);
+  transition: all 0.2s;
+}
+
+.vide {
+  margin: unset;
+  cursor: pointer;
+  z-index: 3;
+
+  
+  transform: scale(1);
+}
+
+
+#carte_clique {
+    z-index: 2;
+    flex-shrink: 0;
+    margin-right:0px;
+    transform: scale(1.2);
+    overflow: visible;
+}
+
+
+
+#carte_clique > .overlay > img {
+  animation: rotation 450ms;
+}
+
+#carte_clique > .overlay::before {
+  filter:unset;
+  background-position: center;
+  background-repeat: no-repeat;
+  
+  background-size: 95% 95%;
+  opacity: 1;
+  z-index: 3;
+}
+
+
+/* Rouge au survol pour supprimer la carte de l'équipe */ 
+.equipe > div > div > #carte_clique > .overlay.overlay:hover:before {
+  filter: invert(48%) sepia(69%) saturate(4957%) hue-rotate(343deg) brightness(99%) contrast(92%);
+}
+
+
+
+
+/* INTERFACE (englobe la navigation et l'équipe) */ 
+
+
+.interface {
+  margin:0px;
+  padding: 0%;
+  display: flex;
+  width: 100%;
+  height: 50%;
+  flex-direction: row;
+  justify-items:left;
+  justify-content: flex-start;
+}
+
+
+/* Equipe (à droite)*/
+
+.equipe {
+  justify-self: flex-end;
+  width: 55%;
+  padding: 0;
+  margin: 0;
+  background-image: url("img/terrain2.png");
+  background-size: 100% 100%;
+  background-position: center;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  
+}
+
+.equipe > div {
+  align-self: center;
+  display: flex;
+  width: 80%;
+  flex-direction: row;
+  justify-content: space-evenly
+}
+
+.equipe > div > .carte {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin-right: unset;
+  
+}
+
+
+
+
+
+
+
+/* SELECTION (partie basse) */
+
+.selection{
+  width: 100%;
+  height: 18%;
+  padding: 1%;
+  margin-top: 0px;
+  display: flex;
+  flex-wrap: nowrap;
+  margin: none;
+  color: white;
+  overflow-x: auto;
+  align-items: end;
+
+  scrollbar-color: #81ffa7 white;
+  background-image: url("img/topography3.webp");
+  background-size: 25%;
+  background-color: #25252517;
+  border-radius: 1%;
+  
+}
+
+.selection > .carte {
+  flex-shrink: 0;
+  margin-right: -15px;
+  transition: all 0.25s;
+}
+
+.selection > .carte:hover {
+  cursor: pointer;
+  z-index: 3;
+
+  
+  transform: scale(1.2);
+  margin-right:0px;
+  transition: all 0.2s;
+  overflow: visible;
+}
+
+
+/* NAVIGATION */
+
+nav {
+  align-self: flex-start;
+  margin: 2%;
+  text-align: center;
+  width: 30%;
+  height: 100%;
+  padding: none;
+  background-color: #25252517;
+  color: black;
+  margin-right: 7.5%;
+  padding: 1%;
+  border-radius: 1%;
+
+  display: flex;
+  flex-direction: column;
+  justify-items: flex-start;
+}
+
+
+#menu {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+
+}
+
+
+
+
+
+.bouton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 0px;
+  padding: 0px;
+  vertical-align: middle;
+  font-family: Montserrat;
+  font-weight: bold;
+  background-color: #81ffa7;
+  min-width: 8em;
+  height: 4em;
+  color: #6f00ff;
+  text-shadow: #6f00ff;
+  border:none
+} 
+
+
+
+
+.bouton:hover {
+  cursor: pointer;
+  background-color: #a8f7bf;
+  transition: all 0.2s;
+  
+
+
+
+} 
+
+option {
+  font-family: Montserrat;
+  font-weight: bold;
+}
+
+#reset {
+  background-color: #ff9e81;
+  color:white;
+}
+
+#reset:hover {
+  background-color: #f1c5b8;
+}
+
+.bouton:active {
+  color: #ffffff;
+  transition: all 0s;
+
+}
+
+@media screen and (max-width: 1200px) {
+  .interface {
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+    align-content: space-around;
+  }
+
+  .image_haut {
+    width: 25%;
+  }
+
+  
+  nav {
+    margin: 0%;
+    width: 100%;
+    align-self: center;
+    background: none;
+  }
+
+  .selection {
+    align-items: start;
+    align-content: start;
+    flex-wrap: wrap;
+  }
+
+  .equipe {
+    margin:0px;
+    width: 100%;
+  }
+
+  .bouton {
+    font-size: 16px;
+  }
+
+
+  .joueur {
+    height: 200px;
+  }
+
+
+}
