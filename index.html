@@ -16,20 +16,20 @@
                 <h2>SELECTION DE L'ÉQUIPE</h2>
                 <h3>CONCOCTEZ VOTRE BRIGADE FANTASMAGORIQUE ™</h3>
                 <form id="menu" name="menu" action="resultat.html" method="GET">
-                    <label id = "infos" name= "infos">
+                    <label id = "infos" name= "infos" required>
 
                     </label>
                     <input type="text" class="bouton" placeholder="NOM DE L'ÉQUIPE" name="nom_equipe">
                     <select onchange="afficherJoueurs(Event)" name="categorie" class="bouton" id="categorie">
-                        <option value="joueursH">MASCULIN</option>
-                        <option value="joueursF">FÉMININ</option>
+                        <option value="homme">MASCULIN</option>
+                        <option value="femme">FÉMININ</option>
                     </select> 
-                    <select name="compo" class="bouton" id="compo" onchange="miseAJourCompo()">
+                    <select name="compo" class="bouton" id="compo" onchange="reinitialiser()">
                         <option value="4,4,2">4-4-2</option>
                         <option value="4,3,3">4-3-3</option>
                         <option value="5,3,2">5-3-2</option>
                     </select>  
-                    <input type="reset" id="reset" class="bouton" value="RÉINITIALISER" onclick="reinitialiser()">
+                    <input type="button" id="reset" class="bouton" value="RÉINITIALISER" onclick="reinitialiser()">
                     <input type="button" onclick="envoyer()" class="bouton" value="VALIDER">
                 
                 </form>

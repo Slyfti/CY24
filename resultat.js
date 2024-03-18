@@ -79,7 +79,11 @@ function creerCarte(k) {
     overlay = document.createElement("div");
     overlay.className = "overlay";
     joueur = document.createElement("img");
-    joueur.src = "imgJoueurs/"+listeJoueurs[k]+".png";
+    if (listeJoueurs[k].name == "empty") {
+        joueur.src = "img/empty.png";
+    } else {
+        joueur.src = "imgJoueurs/"+listeJoueurs[k]+".png";
+    }
     joueur.className = "joueur";
     overlay.appendChild(joueur);
     carte.appendChild(overlay);
