@@ -25,7 +25,8 @@ body {
   margin: 0;
   width: 100%;
   overflow-x:hidden;
-  font-family:'Dosis','Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family:'Montserrat','Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color:white;
   background: linear-gradient(0.75turn, #6f00ff, #868cec);
   min-width: 750px;
   
@@ -46,7 +47,7 @@ h2 {
 
 	font-family: 'Montserrat', sans-serif;
   color: rgb(255, 255, 255);
-  text-shadow: #ffa319 2px 2px;
+  text-shadow: #73a380 2px 2px;
     
 }
 
@@ -58,7 +59,7 @@ h3{
 
 
 .image_haut {
-  width: 70%;
+  width: 60%;
   align-self: center;
   justify-self: center;
 }
@@ -264,7 +265,6 @@ nav {
   height: 100%;
   padding: none;
   background-color: #25252517;
-  color: black;
   margin-right: 7.5%;
   padding: 1%;
   border-radius: 1%;
@@ -277,17 +277,16 @@ nav {
 
 #menu {
   display: flex;
+  flex-wrap: wrap;
   flex-direction: row;
-  justify-content: center;
-
-
+  justify-content: center; 
 }
 
 
 
 
 
-.bouton {
+.bouton, #reset {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -297,13 +296,17 @@ nav {
   vertical-align: middle;
   font-family: Montserrat;
   font-weight: bold;
-  background-color: #81ffa7;
+  background-color: #868cec; /*couleur de fond des cartes */ 
   min-width: 8em;
   height: 4em;
-  color: #6f00ff;
+  color: white;
   text-shadow: #6f00ff;
-  border:none
+  border:none;
+  flex-grow: 3;
 } 
+
+
+
 
 
 
@@ -311,12 +314,16 @@ nav {
 .bouton:hover {
   cursor: pointer;
   background-color: #a8f7bf;
+  color:#6f00ff;
   transition: all 0.2s;
   
 
 
 
 } 
+
+
+
 
 option {
   font-family: Montserrat;
@@ -325,11 +332,31 @@ option {
 
 #reset {
   background-color: #ff9e81;
-  color:white;
 }
 
 #reset:hover {
+  cursor: pointer;
   background-color: #f1c5b8;
+}
+
+#valider {
+  background-color: #81ffa7;
+  color: white;
+  color: #6f00ff;
+  text-shadow: #6f00ff;
+}
+
+#nom_equipe {
+  width: 100%;
+  flex-grow: 3;
+}
+
+#nom_equipe:hover {
+  cursor:text;
+}
+
+#nom_equipe::placeholder {
+  color:rgba(245, 245, 245, 0.801)
 }
 
 .bouton:active {
@@ -353,7 +380,7 @@ option {
   }
 
   .image_haut {
-    width: 25%;
+    width: 35%;
   }
 
   
@@ -379,9 +406,20 @@ option {
     width: 100%;
   }
 
-  .bouton {
-    font-size: 20px;
+
+  #menu {
+    flex-wrap:wrap;
+    overflow: visible;
   }
+  .bouton, #reset {
+    font-size: 0.8em;
+    min-width: 200px;
+    max-width: 100%;
+    flex-grow: 3;
+
+  }
+
+
 
 
   .joueur {
