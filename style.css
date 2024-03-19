@@ -8,16 +8,22 @@
 @keyframes rotation{
   0% {
       transform: rotate3d(0,1,0,0deg);
+      -webkit-transform: rotate3d(0,1,0,0deg);
   }
 
   100% {
       transform: rotate3d(0,1,0,360deg);
+      -webkit-transform: rotate3d(0,1,0,360deg);
   }
 }
 
 
 
 body {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  width: 100%;
   overflow-x:hidden;
   font-family:'Dosis','Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background: linear-gradient(0.75turn, #6f00ff, #868cec);
@@ -104,6 +110,7 @@ h3{
 
   
   transform: scale(1.2);
+  -webkit-transform: scale(1.2);
   transition: all 0.2s;
 }
 
@@ -114,6 +121,7 @@ h3{
 
   
   transform: scale(1);
+  -webkit-transform: scale(1);
 }
 
 
@@ -122,6 +130,7 @@ h3{
     flex-shrink: 0;
     margin-right:0px;
     transform: scale(1.2);
+    -webkit-transform: scale(1.2);
     overflow: visible;
 }
 
@@ -238,6 +247,7 @@ h3{
 
   
   transform: scale(1.2);
+  -webkit-transform: scale(1.2);
   margin-right:0px;
   transition: all 0.2s;
   overflow: visible;
@@ -329,11 +339,17 @@ option {
 }
 
 @media screen and (max-width: 1200px) {
+  body {
+    font-size: 2em;
+  }
+
   .interface {
     flex-direction: column;
     justify-items: center;
     align-items: center;
     align-content: space-around;
+    padding-right: 0%;
+
   }
 
   .image_haut {
@@ -349,6 +365,10 @@ option {
   }
 
   .selection {
+    
+    align-self : center;
+    width: 80%;
+    padding: 5%;
     align-items: start;
     align-content: start;
     flex-wrap: wrap;
@@ -360,7 +380,7 @@ option {
   }
 
   .bouton {
-    font-size: 16px;
+    font-size: 20px;
   }
 
 
@@ -368,5 +388,11 @@ option {
     height: 200px;
   }
 
+  .overlay:hover:before {
+    opacity: 0;
+  }
+
+
+  
 
 }
