@@ -5,6 +5,8 @@ document.body.onload = function() {
   creerJoueurs();
   afficherJoueurs();
   creerEquipeVide(nombreDefenseur,nombreMilieu,nombreAttaquant);
+  updateForm();
+  ajouterOnClick();
 }
 
 
@@ -20,7 +22,6 @@ let compo = document.getElementById("compo");
 
 function ajouterOnClick() {
   let cartes = document.getElementsByClassName("carte");
-  let cartes_vides = document.getElementsByClassName("carte vide");
   for (let i = 0;i<cartes.length;i++){
     cartes[i].addEventListener('click',positionner);
   }
@@ -175,6 +176,7 @@ function creerEquipeVide(def,mil,att) {
   equipe.appendChild(divM);
   equipe.appendChild(divD);
   equipe.appendChild(divG);
+  ajouterOnClick();
 }
 
 
