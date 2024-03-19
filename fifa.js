@@ -115,7 +115,7 @@ function creerJoueurs() {
   }
   
   for (let i=0;i<joueursF.length;i++) {
-    creerCarte(joueursF[i],"femme");
+    carte = creerCarte(joueursF[i],"femme");
     selection.prepend(carte);
   }
 }
