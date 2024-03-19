@@ -302,6 +302,7 @@ nav {
   color: white;
   text-shadow: #6f00ff;
   border: none;
+  border-radius: 5px;
   flex-grow: 3;
 } 
 
