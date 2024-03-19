@@ -431,6 +431,10 @@ option {
     opacity: 0;
   }
 
+  #nom_equipe {
+    font-size: 24px;
+    padding: 0px;
+  }
 
   
 
