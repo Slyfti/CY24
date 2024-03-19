@@ -13,13 +13,16 @@
         <div class="interface">
             <nav>
                 <img src="img/CY24.png" class="image_haut"/>
-                <h2>SELECTION DE L'ÉQUIPE</h2>
                 <h3>CONCOCTEZ VOTRE BRIGADE FANTASMAGORIQUE ™</h3>
+                <p> Sélectionnez ou drag-&-droppez vos joueurs dans l'équipe, vous pouvez choisir différentes compositions.
+                    Pour valider, il vous faut une équipe au complet, cependant vous pouvez choisir des joueurs de n'importe quel catégorie !
+
+                </p>
                 <form id="menu" name="menu" action="resultat.html" method="GET">
                     <label id = "infos" name= "infos" required>
 
                     </label>
-                    <input type="text" class="bouton" placeholder="NOM DE L'ÉQUIPE" name="nom_equipe">
+                    <input type="text" class="bouton" placeholder="NOM DE L'ÉQUIPE" name="nom_equipe" id="nom_equipe">
                     <select onchange="afficherJoueurs(Event)" name="categorie" class="bouton" id="categorie">
                         <option value="homme">MASCULIN</option>
                         <option value="femme">FÉMININ</option>
@@ -29,8 +32,8 @@
                         <option value="4,3,3">4-3-3</option>
                         <option value="5,3,2">5-3-2</option>
                     </select>  
-                    <input type="button" id="reset" class="bouton" value="RÉINITIALISER" onclick="reinitialiser()">
-                    <input type="button" onclick="envoyer()" class="bouton" value="VALIDER">
+                    <input type="button" id="reset" value="RÉINITIALISER" onclick="reinitialiser()">
+                    <input type="button" onclick="envoyer()" class="bouton" id="valider" value="VALIDER">
                 
                 </form>
             </nav>

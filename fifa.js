@@ -24,6 +24,12 @@ function ajouterOnClick() {
   let cartes = document.getElementsByClassName("carte");
   for (let i = 0;i<cartes.length;i++){
     cartes[i].addEventListener('click',positionner);
+    cartes[i].addEventListener('dragstart',drag);
+    cartes[i].addEventListener('dragover',allowDrop);
+    cartes[i].addEventListener('drop',drop);
+    
+
+
   }
 }
 
@@ -81,51 +87,41 @@ var joueursF = [
   'Pessie'
 ]
 
-
+function creerCarte(nom,categorie) {
+  carte = document.createElement("div");
+  carte.className = "carte";
+  carte.dataset.value =categorie;
+  carte.name = nom;
+  carte.draggable = true;
+  overlay = document.createElement("div");
+  overlay.className = "overlay";
+  joueur = document.createElement("img");
+  joueur.src = "imgJoueurs/"+nom+".png";
+  joueur.className = "joueur";
+  carte.style.display = "none";
+  overlay.prepend(joueur);
+  carte.prepend(overlay);
+  
+  
+  return carte;
+}
 
 function creerJoueurs() {
+  let carte;
   selection.innerHTML = "";
   for (let i=0;i<joueursH.length;i++) {
-    carte = document.createElement("div");
-    carte.className = "carte";
-    carte.dataset.value ="homme";
-    carte.name = joueursH[i];
-    overlay = document.createElement("div");
-    overlay.className = "overlay";
-    joueur = document.createElement("img");
-    joueur.src = "imgJoueurs/"+joueursH[i]+".png";
-    joueur.className = "joueur";
-    carte.style.display = "none";
-  
-    overlay.prepend(joueur);
-    carte.prepend(overlay);
-  
+    carte = creerCarte(joueursH[i],"homme");
     selection.prepend(carte);
-    selection.id = categorie;
-    
   }
   
   for (let i=0;i<joueursF.length;i++) {
-    carte = document.createElement("div");
-    carte.className = "carte";
-    carte.dataset.value ="femme";
-    carte.name = joueursF[i];
-    overlay = document.createElement("div");
-    overlay.className = "overlay";
-    joueur = document.createElement("img");
-    joueur.src = "imgJoueurs/"+joueursF[i]+".png";
-    joueur.className = "joueur";
-    carte.style.display = "none";
-    
-    overlay.prepend(joueur);
-    carte.prepend(overlay)
-  
+    creerCarte(joueursF[i],"femme");
     selection.prepend(carte);
-    selection.id = categorie;
-    
   }
-
 }
+
+
+
 
 
 function creerCarteVide() {
@@ -133,6 +129,7 @@ function creerCarteVide() {
 
   carte = document.createElement("div");
   carte.className = "carte vide";
+  carte.draggable = true;
   overlay = document.createElement("div");
   overlay.className = "overlay";
   joueur = document.createElement("img");
@@ -248,6 +245,23 @@ function positionner(e) {
   updateForm();
 
 }
+
+
+// FONCTIONS QUI PERMETTENT LE DRAG AND DROP : https://www.w3schools.com/html/html5_draganddrop.asp
+function drag(e) {
+  e.target.id = "carte_clique";
+}
+
+function drop(e) {
+  positionner(e);
+}
+
+function allowDrop(e) {
+  e.preventDefault();
+}
+
+//
+
 
 
 function miseAJourCompo() {
