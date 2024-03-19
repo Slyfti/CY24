@@ -96,7 +96,7 @@ h3{
 
 }
 .overlay:hover:before {
-  opacity: 1;
+  opacity: 0.5;
 }
 
 /* CARTE (englobe l'image et l'overlay)*/
@@ -286,13 +286,13 @@ nav {
 
 
 
-.bouton, #reset {
+.bouton, #reset, #valider {
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
-  margin: 0px;
-  padding: 0px;
+  margin: 0.25%;
+  padding: 1%;
   vertical-align: middle;
   font-family: Montserrat;
   font-weight: bold;
@@ -301,7 +301,7 @@ nav {
   height: 4em;
   color: white;
   text-shadow: #6f00ff;
-  border:none;
+  border: none;
   flex-grow: 3;
 } 
 

@@ -27,6 +27,7 @@ function ajouterOnClick() {
     cartes[i].addEventListener('dragstart',drag);
     cartes[i].addEventListener('dragover',allowDrop);
     cartes[i].addEventListener('drop',drop);
+    cartes[i].addEventListener("dragend",dropAnnule);
     
 
 
@@ -249,15 +250,24 @@ function positionner(e) {
 
 // FONCTIONS QUI PERMETTENT LE DRAG AND DROP : https://www.w3schools.com/html/html5_draganddrop.asp
 function drag(e) {
+  carte_clique = document.getElementById("carte_clique");
+  if (carte_clique !=null) carte_clique.id = "";
   e.target.id = "carte_clique";
 }
 
 function drop(e) {
+  carte_clique = document.getElementById("carte_clique");
   positionner(e);
 }
 
 function allowDrop(e) {
   e.preventDefault();
+}
+
+function dropAnnule(e) {
+  carte_clique = document.getElementById("carte_clique");
+  if (carte_clique !=null) carte_clique.id = "";
+
 }
 
 //

@@ -38,9 +38,10 @@ body {
   
   .interface > nav {
     justify-self: center;
-    align-self: unset;
+    height: unset;
     margin: 0px;
     background-image: url("img/topography3.webp");
+    align-self: stretch;
   }
   
   fieldset > nav {
