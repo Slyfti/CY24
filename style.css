@@ -29,18 +29,22 @@
   }
 }
 
+html,body {
+  min-width: 100vw;
+  min-height: 100vh;
+}
 
 
 body {
   display: flex;
   flex-direction: column;
+  justify-items: center;
+  justify-content: space-around;
   margin: 0;
-  width: 100%;
   overflow-x:hidden;
   font-family:'Montserrat','Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color:white;
   background: linear-gradient(0.75turn, #6f00ff, #868cec);
-  min-width: 750px;
   
 }
 
@@ -71,7 +75,7 @@ h3{
 
 
 .image_haut {
-  width: 60%;
+  width: 35%;
   align-self: center;
   justify-self: center;
 }
@@ -82,7 +86,7 @@ h3{
 
 
 .joueur{
-  height: 140px; /* Définit la taille de la carte (important) */
+  height: 8em; /* Définit la taille de la carte (important) */
 }
 
 .overlay {
@@ -236,8 +240,12 @@ h3{
 
 .selection{
   width: 100%;
-  height: 18%;
-  padding: 1%;
+  min-height: 18%;
+  padding-top: 1%;
+  padding-bottom: 1%;
+  padding-left: 1%;
+  
+
   margin-top: 0px;
   display: flex;
   flex-wrap: nowrap;
@@ -251,6 +259,8 @@ h3{
   background-size: 25%;
   background-color: #25252517;
   border-radius: 1%;
+
+  justify-self: flex-start;
   
 }
 
@@ -276,7 +286,8 @@ h3{
 /* NAVIGATION */
 
 nav {
-  align-self: flex-start;
+  align-self: center;
+  font-size: 1em;
   margin: 2%;
   text-align: center;
   width: 30%;
@@ -286,6 +297,7 @@ nav {
   margin-right: 7.5%;
   padding: 1%;
   border-radius: 1%;
+  flex-shrink: 2;
 
   display: flex;
   flex-direction: column;
@@ -315,7 +327,6 @@ nav {
   font-family: Montserrat;
   font-weight: bold;
   background-color: #868cec; /*couleur de fond des cartes */ 
-  min-width: 8em;
   height: 4em;
   color: white;
   text-shadow: #6f00ff;
@@ -423,6 +434,7 @@ option {
     align-self : center;
     width: 80%;
     padding: 5%;
+    justify-content: center;
     align-items: start;
     align-content: start;
     flex-wrap: wrap;
@@ -431,6 +443,7 @@ option {
   .equipe {
     margin:0px;
     width: 100%;
+
   }
 
 
@@ -439,19 +452,13 @@ option {
     overflow: visible;
   }
   .bouton, #reset {
-    font-size: 0.8em;
+    font-size: 1em;
     min-width: 200px;
     max-width: 100%;
     flex-grow: 3;
 
   }
 
-
-
-
-  .joueur {
-    height: 200px;
-  }
 
   .overlay:hover:before {
     opacity: 0;

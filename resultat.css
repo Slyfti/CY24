@@ -116,9 +116,6 @@ body {
       font-size: 0.8em;
     }
   
-    .joueur {
-      height: 140px;
-    }
 
     .image_tel {
       justify-self: flex-end;
