@@ -96,7 +96,7 @@ function creerCarte(nom,categorie) {
   carte.draggable = true;
   overlay = document.createElement("div");
   overlay.className = "overlay";
-  joueur = document.createElement("img");
+  let joueur = document.createElement("img");
   joueur.src = "imgJoueurs/"+nom+".png";
   joueur.className = "joueur";
   carte.style.display = "none";
@@ -133,7 +133,7 @@ function creerCarteVide() {
   carte.draggable = true;
   overlay = document.createElement("div");
   overlay.className = "overlay";
-  joueur = document.createElement("img");
+  let joueur = document.createElement("img");
   joueur.src = "img/empty.png";
   joueur.className = "joueur";
   overlay.appendChild(joueur);
