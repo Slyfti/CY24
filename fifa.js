@@ -88,6 +88,11 @@ var joueursF = [
   'Pessie'
 ]
 
+// Liste des joueurs féminins
+var joueursA = [
+  'pingouin'
+]
+
 function creerCarte(nom,categorie) {
   carte = document.createElement("div");
   carte.className = "carte";
@@ -117,6 +122,11 @@ function creerJoueurs() {
   
   for (let i=0;i<joueursF.length;i++) {
     carte = creerCarte(joueursF[i],"femme");
+    selection.prepend(carte);
+  }
+
+  for (let i=0;i<joueursA.length;i++) {
+    carte = creerCarte(joueursA[i],"animal");
     selection.prepend(carte);
   }
 }
