@@ -92,7 +92,9 @@ var joueursF = [
 
 // Liste des joueurs féminins
 var joueursA = [
-  'pingouin'
+  'pingouin',
+  'kangourou',
+  'chien'
 ]
 
 function creerCarte(nom,categorie) {
@@ -305,7 +307,6 @@ function afficherJoueurs() {
   let overlay;
   if  (document.getElementById("carte_clique")!= null) document.getElementById("carte_clique").id = "";
   let categorie = document.getElementById("categorie").value;
-  console.log(categorie)
   let joueurs = selection.children;
   // selection.innerHTML = "";
   for (let i=0;i<joueurs.length;i++) {
