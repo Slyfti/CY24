@@ -86,7 +86,7 @@ h3{
 
 
 .joueur{
-  height: 8em; /* Définit la taille de la carte (important) */
+  height: 9em; /* Définit la taille de la carte (important) */
 }
 
 .overlay {
@@ -239,6 +239,10 @@ h3{
 /* SELECTION (partie basse) */
 
 .selection{
+  position:sticky;
+  bottom: 0;
+
+
   width: 100%;
   min-height: 18%;
   padding-top: 1%;
@@ -430,6 +434,8 @@ option {
   }
 
   .selection {
+    position:unset;
+    bottom: unset;
     
     align-self : center;
     width: 80%;
