@@ -26,13 +26,13 @@
 
 @keyframes apparition {
   0% {
-      transform: rotate3d(0,1,0,0deg) scale(0);
-      -webkit-transform: rotate3d(0,1,0,0deg) scale(0);
+      transform: rotate3d(0,1,0,0deg);
+      -webkit-transform: rotate3d(0,1,0,0deg);
   }
 
   100% {
-      transform: rotate3d(0,1,0,360deg) scale(1);
-      -webkit-transform: rotate3d(0,1,0,360deg) scale(1);
+      transform: rotate3d(0,1,0,360deg);
+      -webkit-transform: rotate3d(0,1,0,360deg);
   }
 }
 
