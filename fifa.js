@@ -22,12 +22,14 @@ let compo = document.getElementById("compo");
 
 function ajouterOnClick() {
   let cartes = document.getElementsByClassName("carte");
+  let overlay = document.getElementsByClassName("overlay");
   for (let i = 0;i<cartes.length;i++){
     cartes[i].addEventListener('click',positionner);
     cartes[i].addEventListener('dragstart',drag);
     cartes[i].addEventListener('dragover',allowDrop);
     cartes[i].addEventListener('drop',drop);
     cartes[i].addEventListener("dragend",dropAnnule);
+
     
 
 
@@ -94,12 +96,12 @@ var joueursA = [
 ]
 
 function creerCarte(nom,categorie) {
-  carte = document.createElement("div");
+  let carte = document.createElement("div");
   carte.className = "carte";
   carte.dataset.value =categorie;
   carte.name = nom;
   carte.draggable = true;
-  overlay = document.createElement("div");
+  let overlay = document.createElement("div");
   overlay.className = "overlay";
   let joueur = document.createElement("img");
   joueur.src = "imgJoueurs/"+nom+".png";
@@ -141,7 +143,7 @@ function creerCarteVide() {
   carte = document.createElement("div");
   carte.className = "carte vide";
   carte.draggable = true;
-  overlay = document.createElement("div");
+  let overlay = document.createElement("div");
   overlay.className = "overlay";
   let joueur = document.createElement("img");
   joueur.src = "img/empty.png";
@@ -191,7 +193,7 @@ function creerEquipeVide(def,mil,att) {
 
 function selectionner(e) {
   
-  let carte = e.target.parentNode;
+  let carte = e.currentTarget;
   
   if (carte.classList.contains("carte")) {
     let ancienneCarte = document.getElementById("carte_clique");
@@ -211,7 +213,7 @@ function positionner(e) {
   let equipe = document.getElementsByClassName("equipe")[0];
   let selection = document.getElementsByClassName("selection")[0];
   let categorie = document.getElementById("categorie").value;
-  let carte = e.target.parentNode;
+  let carte = e.currentTarget;
 
 
   if (carte_clique == null) {
@@ -262,7 +264,7 @@ function positionner(e) {
 function drag(e) {
   carte_clique = document.getElementById("carte_clique");
   if (carte_clique !=null) carte_clique.id = "";
-  e.target.id = "carte_clique";
+  e.currentTarget.id = "carte_clique";
 }
 
 function drop(e) {
