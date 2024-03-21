@@ -39,8 +39,11 @@
 html,body {
   min-width: 100vw;
   min-height: 100vh;
-}
 
+  /* Pour éviter le delay de 0.3s sur mobile */
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+}
 
 body {
   display: flex;
@@ -346,6 +349,11 @@ nav {
   flex-grow: 3;
 } 
 
+option {
+  font-size: 2em;
+  border-radius: 5px;
+
+}
 
 
 

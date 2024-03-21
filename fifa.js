@@ -303,6 +303,7 @@ function afficherJoueurs() {
   let carte;
   let joueur;
   let overlay;
+  if  (document.getElementById("carte_clique")!= null) document.getElementById("carte_clique").id = "";
   let categorie = document.getElementById("categorie").value;
   console.log(categorie)
   let joueurs = selection.children;
