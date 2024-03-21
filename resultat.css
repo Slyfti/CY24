@@ -9,6 +9,10 @@ body {
     width: 25%;
 }
 
+.bouton {
+  flex-grow: 0;
+}
+
 .interface {
     align-self: center;
     margin: 2.5%;
@@ -40,7 +44,7 @@ body {
     justify-self: center;
     height: unset;
     margin: 0px;
-    background-image: url("img/topography3.webp");
+    background-image: url("content/img/topography3.webp");
     align-self: stretch;
   }
   
@@ -50,7 +54,7 @@ body {
     align-self: unset;
     margin: 0px;
     padding: unset;
-    background-image: url("img/topography3.webp");
+    background-image: url("content/img/topography3.webp");
   }
   
   fieldset > .equipe > div > div > .carte {

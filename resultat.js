@@ -80,9 +80,9 @@ function creerCarte(k) {
     overlay.className = "overlay";
     joueur = document.createElement("img");
     if (listeJoueurs[k].name == "empty") {
-        joueur.src = "img/empty.png";
+        joueur.src = "content/img/empty.png";
     } else {
-        joueur.src = "imgJoueurs/"+listeJoueurs[k]+".png";
+        joueur.src = "content/imgJoueurs/"+listeJoueurs[k]+".png";
     }
     joueur.className = "joueur";
     overlay.appendChild(joueur);

@@ -104,7 +104,7 @@ function creerCarte(nom,categorie) {
   let overlay = document.createElement("div");
   overlay.className = "overlay";
   let joueur = document.createElement("img");
-  joueur.src = "imgJoueurs/"+nom+".png";
+  joueur.src = "content/imgJoueurs/"+nom+".png";
   joueur.className = "joueur";
   carte.style.display = "none";
   overlay.prepend(joueur);
@@ -146,7 +146,7 @@ function creerCarteVide() {
   let overlay = document.createElement("div");
   overlay.className = "overlay";
   let joueur = document.createElement("img");
-  joueur.src = "img/empty.png";
+  joueur.src = "content/img/empty.png";
   joueur.className = "joueur";
   overlay.appendChild(joueur);
   carte.appendChild(overlay);
