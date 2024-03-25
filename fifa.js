@@ -1,5 +1,5 @@
 /* ------------------------------------------------------------  */
-/* On charge la fonction ajouterOnClick au chargement de la page */
+/* On charge la fonction au chargement de la page */
 /* ------------------------------------------------------------  */
 document.body.onload = function() {
   creerJoueurs();
@@ -90,7 +90,7 @@ var joueursF = [
   'Pessie'
 ]
 
-// Liste des joueurs féminins
+// Liste des joueurs ???
 var joueursA = [
   'pingouin',
   'kangourou',
@@ -193,9 +193,7 @@ function creerEquipeVide(def,mil,att) {
 
 
 
-function selectionner(e) {
-  
-  let carte = e.currentTarget;
+function selectionner(carte) {
   
   if (carte.classList.contains("carte")) {
     let ancienneCarte = document.getElementById("carte_clique");
@@ -209,6 +207,33 @@ function selectionner(e) {
   }
 }
 
+function echanger(carte,carte_clique) {
+  let selection = carte_clique.parentNode;
+  let divClick = carte.parentNode;
+  carte.id = "";
+  carte_clique.id = "";
+  if (selection == divClick) {
+    selectionner(carte);
+  } else {
+    divClick.removeChild(carte);
+    carte_clique.classList.contains("vide") ? divClick.appendChild(carte_clique)  :  divClick.prepend(carte_clique);
+    // Si l'ancienne carte n'est pas une carte vide, alors on peux échanger les deux cartes
+    carte.classList.contains("vide") ? selection.appendChild(carte) : selection.prepend(carte);
+  }
+
+} 
+
+function virerCarte(carte) {
+  carte.id = "";
+    if (carte.classList.contains("vide")) {
+      carte.parentNode.removeChild(carte)
+    } else {
+      selection.prepend(carte); // Si on vire une carte vide, on la supprime
+      selection.removeChild(selection.lastChild);
+    } 
+}
+
+
 function positionner(e) {
 
   let carte_clique = document.getElementById("carte_clique");
@@ -218,44 +243,41 @@ function positionner(e) {
   let carte = e.currentTarget;
 
 
-  if (carte_clique == null) {
-    selectionner(e);
-    // Si on clique deux fois sur une carte de l'équipe, alors on la vire
+  // Si on ctrl + click sur un joueur de la sélection
+  if (e.ctrlKey && carte.parentNode == selection) {
+    let premiereCarteVide = document.querySelector(".vide");
+    selectionner(premiereCarteVide);
+    premiereCarteVide.dataset.value = categorie;
+    carte.dataset.value = categorie;
+    
+    echanger(carte,premiereCarteVide);
+    let carte_clique = document.getElementById("carte_clique");
+    if (carte_clique =! null) carte_clique.id = "";
+  
+  } else if (carte_clique == null) { // Si il n'y a pas déjà une carte de cliqué, alors on selectionne la carte actuelle
+    selectionner(carte);
+
+
+  // Si on clique deux fois sur une carte de l'équipe, alors on la vire
   } else if (carte.isEqualNode(carte_clique) && equipe.contains(carte_clique)) { 
     carte_clique.dataset.value = categorie;
     carte.dataset.value = categorie;
-
-    carte.id = "";
-    if (carte.classList.contains("vide")) {
-      carte.parentNode.removeChild(carte)
-    } else {
-      selection.prepend(carte); // Si on vire une carte vide, on la supprime
-      selection.removeChild(selection.lastChild);
-    } 
-     // Sinon on interchange les deux cartes
-  } else {
+    virerCarte(carte);
+     
+  } else { // Sinon on interchange les deux cartes
     carte_clique.dataset.value = categorie;
     carte.dataset.value = categorie;
-    
-    let selection = carte_clique.parentNode;
-    let divClick = carte.parentNode;
-    carte.id = "";
-    carte_clique.id = "";
-    if (selection == divClick) {
-      selectionner(e);
-    } else {
-      divClick.removeChild(carte);
-      carte_clique.classList.contains("vide") ? divClick.appendChild(carte_clique)  :  divClick.prepend(carte_clique);
-      // Si l'ancienne carte n'est pas une carte vide, alors on peux échanger les deux cartes
-      carte.classList.contains("vide") ? selection.appendChild(carte) : selection.prepend(carte) ;
-    }
-    
-    
+    echanger(carte,carte_clique);
   }
+  
+
+
+  // Remet des cartes vides dans l'équipe si il vient à en manquer (par exemple si on supprime une carte)
   let positions = document.getElementsByClassName("position");
   for (let i=0;i<positions.length;i++) {
     if (positions[i].children.length==0) positions[i].appendChild(creerCarteVide());
   }
+
   ajouterOnClick();
   updateForm();
 
@@ -347,7 +369,6 @@ function ajouterInputVide(infos) {
 function updateForm() {
   infos.innerHTML ="";
   let k=0;
-
   
   let equipe = document.getElementsByClassName("equipe")[0];
   let roleDivList = equipe.children;

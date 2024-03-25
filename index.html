@@ -16,7 +16,9 @@
                 <h3>CONCOCTEZ VOTRE ESCOUADE FANTASMAGORIQUE ™</h3>
                 <p> <b> Sélectionnez </b> ou <b> drag-&-droppez </b>vos <b>joueurs </b> dans l'équipe, vous pouvez choisir différentes <b>compositions</b>.
                     Pour valider, il vous faut une équipe au complet, cependant vous pouvez choisir des joueurs de n'importe quel <b>catégorie</b   > !
-
+                </p>
+                <p>
+                    <b>Astuce :  </b> Pour créer rapidement votre équipe : vous pouvez utiliser le <b>CTRL + Clic</b>
                 </p>
                 <form id="menu" name="menu" action="resultat.html" method="GET">
                     <span id="infos" name="infos" for="menu" required>
@@ -26,7 +28,7 @@
                     <select onchange="afficherJoueurs(Event)" name="categorie" class="bouton" id="categorie">
                         <option value="homme">MASCULIN</option>
                         <option value="femme">FÉMININ</option>
-                        <option value="animal">ANIMAL</option>
+                        <option value="animal">???</option>
                     </select> 
                     <select name="compo" class="bouton" id="compo" onchange="reinitialiser()">
                         <option value="4,4,2">4-4-2</option>
@@ -35,6 +37,7 @@
                     </select>  
                     <input type="button" id="reset" value="RÉINITIALISER" onclick="reinitialiser()">
                     <input type="button" onclick="envoyer()" class="bouton" id="valider" value="VALIDER">
+                    
                 
                 </form>
             </nav>
