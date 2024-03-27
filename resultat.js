@@ -13,7 +13,6 @@ for(i=0;i<listParam.length;i++){
 }
 
 compo = dict["compo"]
-console.log(compo)
 listCompo = compo.split(",");
 def = listCompo[0];
 mil = listCompo[1];

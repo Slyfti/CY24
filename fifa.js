@@ -20,6 +20,7 @@ let selection = document.getElementsByClassName("selection")[0];
 let compo = document.getElementById("compo");
 
 
+// Ajoute les attributs on click sur les éléments 
 function ajouterOnClick() {
   let cartes = document.getElementsByClassName("carte");
   let overlay = document.getElementsByClassName("overlay");
@@ -97,6 +98,7 @@ var joueursA = [
   'chien'
 ]
 
+// Crée une carte en fonction de son nom (nom de l'image = nom du joueur), et de sa catégorie (femme, homme etc..)
 function creerCarte(nom,categorie) {
   let carte = document.createElement("div");
   carte.className = "carte";
@@ -116,6 +118,7 @@ function creerCarte(nom,categorie) {
   return carte;
 }
 
+// Crée les joueurs au chargement de la page
 function creerJoueurs() {
   let carte;
   selection.innerHTML = "";
@@ -138,7 +141,7 @@ function creerJoueurs() {
 
 
 
-
+// Crée une carte vide (carte violette avec logo)
 function creerCarteVide() {
   let categorie = document.getElementById("categorie").value;
 
@@ -155,6 +158,7 @@ function creerCarteVide() {
   return carte;
 }
 
+// Crée une position avec le rôle attribué
 function creerPosition(lettreRole) {
   position = document.createElement("div");
   position.className = "position";
@@ -163,6 +167,7 @@ function creerPosition(lettreRole) {
   return position;
 }
 
+// Crée une équipe vide en fonction de la composition passée (supprime la précédente si elle existait)
 function creerEquipeVide(def,mil,att) {
   let equipe = document.getElementsByClassName("equipe")[0];
   equipe.innerHTML = "";
@@ -171,13 +176,13 @@ function creerEquipeVide(def,mil,att) {
   let divD = document.createElement("div");
   let divG = document.createElement("div");
   
-  for (let i=0;i<def;i++) {
+  for (let i=0;i<def;i++) { // Défenseurs
     divD.appendChild(creerPosition("D"));
   }
-  for (let i=0;i<mil;i++) {
+  for (let i=0;i<mil;i++) { // Millieux
     divM.appendChild(creerPosition("M"));
   }
-  for (let i=0;i<att;i++) {
+  for (let i=0;i<att;i++) { // Attaquants
     divA.appendChild(creerPosition("A"));
   }
 
@@ -192,7 +197,7 @@ function creerEquipeVide(def,mil,att) {
 }
 
 
-
+// Met un id carte_clique sur la carte passé et enlève l'ancien id carte_clique, 
 function selectionner(carte) {
   
   if (carte.classList.contains("carte")) {
@@ -207,29 +212,32 @@ function selectionner(carte) {
   }
 }
 
-function echanger(carte,carte_clique) {
-  let selection = carte_clique.parentNode;
-  let divClick = carte.parentNode;
-  carte.id = "";
-  carte_clique.id = "";
-  if (selection == divClick) {
-    selectionner(carte);
+// Echange les positions de deux cartes, (gère le cas carte vide : mettre la carte à la fin de la div parent)
+function echanger(carte1,carte2) {
+  let div1 = carte2.parentNode;
+  let div2 = carte1.parentNode;
+  carte1.id = "";
+  carte2.id = "";
+  if (div1 == div2) {
+    selectionner(carte1);
   } else {
-    divClick.removeChild(carte);
-    carte_clique.classList.contains("vide") ? divClick.appendChild(carte_clique)  :  divClick.prepend(carte_clique);
+    div2.removeChild(carte1);
+    carte2.classList.contains("vide") ? div2.appendChild(carte2)  :  div2.prepend(carte2);
     // Si l'ancienne carte n'est pas une carte vide, alors on peux échanger les deux cartes
-    carte.classList.contains("vide") ? selection.appendChild(carte) : selection.prepend(carte);
+    carte1.classList.contains("vide") ? div1.appendChild(carte1) : div1.prepend(carte1);
   }
 
 } 
 
+
+// Vire une carte de l'équipe (et la remet dans la selection si elle n'est pas vide)
 function virerCarte(carte) {
   carte.id = "";
     if (carte.classList.contains("vide")) {
-      carte.parentNode.removeChild(carte)
+      carte.parentNode.removeChild(carte) // Si on vire une carte vide, on la supprime
     } else {
-      selection.prepend(carte); // Si on vire une carte vide, on la supprime
-      selection.removeChild(selection.lastChild);
+      selection.prepend(carte); // Sinon, on l'enleve de l'équipe et on la remet dans la selection
+      selection.removeChild(selection.lastChild); // On enlève la carte vide qui était auparavant dans la selection (elle est forcémment en dernier)
     } 
 }
 
@@ -391,7 +399,6 @@ function updateForm() {
 
 function envoyer() {
   let menu = document.getElementById("menu");
-  console.log(updateForm());
   if (updateForm() ==11) {
     menu.submit();
   }
