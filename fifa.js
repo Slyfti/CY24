@@ -41,6 +41,7 @@ function ajouterOnClick() {
 
 // Liste des joueurs masculins
 var joueursH = [
+  'Pessi',
   'Dante',
   'Ronaldo',
   'alisson',
@@ -60,12 +61,13 @@ var joueursH = [
   'robertLewandowski',
   'theoHermandez',
   'tonyKroos',
-  'virgilVanDijk',
-  'Pessi'
+  'virgilVanDijk'
+  
 ]
 
 // Liste des joueurs féminins
 var joueursF = [
+  'Pessie',
   'alexGreenwood',
   'alexiaPutellas',
   'alexMorgan',
@@ -87,17 +89,19 @@ var joueursF = [
   'onaBatlle',
   'pernilleHarder',
   'samKerr',
-  'sandraPanos',
-  'Pessie'
+  'sandraPanos'
+  
 ]
 
 // Liste des joueurs ???
 var joueursA = [
   'pingouin',
   'kangourou',
-  'chien'
+  'chien',
+  'flam'
 ]
 
+// Liste des joueurs de l'OGC Nice (qui ont une carte ultimate team)
 var joueursNice = [
 
   'mendy',

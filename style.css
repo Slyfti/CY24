@@ -33,7 +33,7 @@ html,body {
   min-width: 100vw;
   min-height: 100vh;
 
-  /* Pour éviter le delay de 0.3s sur mobile */
+  /* Pour éviter le delai de 0.3s sur mobile quand on clique*/
   -ms-touch-action: manipulation;
   touch-action: manipulation;
 }
@@ -93,7 +93,7 @@ p {
 
 
 .joueur{
-  height: 9em; /* Définit la taille de la carte (important) */
+  width: 6.5em; /* Définit la taille de la carte (important) */
 }
 
 .overlay {
@@ -346,11 +346,7 @@ nav {
   flex-grow: 3;
 } 
 
-option {
-  font-size: 2em;
-  border-radius: 5px;
 
-}
 
 
 
@@ -419,9 +415,15 @@ option {
 
 }
 
+
+/* CSS qui concerne les écrans de téléphones*/
 @media screen and (max-width: 1200px) {
   body {
-    font-size: 2em;
+    font-size: 1.8em;
+  }
+
+  .joueur{
+    height: 7em; /* Définit la taille de la carte (important) */
   }
 
   .interface {
@@ -482,10 +484,6 @@ option {
     opacity: 0;
   }
 
-  #nom_equipe {
-    font-size: 24px;
-    padding: 0px;
-  }
 
   
 
