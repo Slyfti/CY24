@@ -98,6 +98,23 @@ var joueursA = [
   'chien'
 ]
 
+var joueursNice = [
+
+  'mendy',
+  'guessand',
+  'bekaBeka',
+  'bard',
+  'perraud',
+  'claude-maurice',
+  'sanson',
+  'diop',
+  'todibo',
+  'thuram',
+  'laborde'
+
+
+]
+
 // Crée une carte en fonction de son nom (nom de l'image = nom du joueur), et de sa catégorie (femme, homme etc..)
 function creerCarte(nom,categorie) {
   let carte = document.createElement("div");
@@ -136,6 +153,13 @@ function creerJoueurs() {
     carte = creerCarte(joueursA[i],"animal");
     selection.prepend(carte);
   }
+
+  for (let i=0;i<joueursNice.length;i++) {
+    carte = creerCarte(joueursNice[i],"nice");
+    selection.prepend(carte);
+  }
+
+  
 }
 
 
