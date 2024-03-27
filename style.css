@@ -93,7 +93,7 @@ p {
 
 
 .joueur{
-  width: 6.5em; /* Définit la taille de la carte (important) */
+  height: 9em; /* Définit la taille de la carte (important) */
 }
 
 .overlay {
