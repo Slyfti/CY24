@@ -77,7 +77,7 @@ function creerEquipe(def,mil,att) {
 // Crée une carte
 function creerCarte(k) {
     carte = document.createElement("div");
-    carte.className = "carte vide";
+    carte.className = "carte";
     overlay = document.createElement("div");
     overlay.className = "overlay";
     joueur = document.createElement("img");
