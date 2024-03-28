@@ -2,7 +2,7 @@ valParam = new Array();
 let nomParam = new Array();
 let dict = {};
 /* On enlève le ? */
-url = decodeURIComponent(window.location.search.slice(1,window.location.search.length)).replace( /\+/g, ' ' );
+url = decodeURIComponent(window.location.search.slice(1,window.location.search.length)).replace( /\+/g, ' ' ); // decodeUrlComponent permet de mettre des caractères UTF 8 dans le lien
 /* récupérer les différents paramètres séparés par un & */
 listParam = url.split("&");
 for(i=0;i<listParam.length;i++){
@@ -12,14 +12,16 @@ for(i=0;i<listParam.length;i++){
     if (nomParam[i].length !=1 ) dict[nomParam[i]] = valParam[i]; // On ne prends pas en compte les joueurs
 }
 
-compo = dict["compo"]
+compo = dict["compo"] // Cherche le paramètre s'appelant compo
 listCompo = compo.split(",");
-def = listCompo[0];
-mil = listCompo[1];
+def = listCompo[0]; 
+mil = listCompo[1]; 
 att = listCompo[2];
 
+// Joueurs = paramètres de 0 à 11
 listeJoueurs = valParam.slice(0,11);
 
+// Crée une équipe
 function creerEquipe(def,mil,att) {
     let equipe = document.getElementsByClassName("equipe")[0];
     equipe.innerHTML = "";
@@ -72,6 +74,7 @@ function creerEquipe(def,mil,att) {
   
 }
 
+// Crée une carte
 function creerCarte(k) {
     carte = document.createElement("div");
     carte.className = "carte vide";
@@ -89,6 +92,8 @@ function creerCarte(k) {
     return carte;
 }
 
+
+// Permet de mettre le lien du site dans le presse papier
 function partager() {
     let partage = document.getElementById("partage");
     let url = window.location.href;
@@ -96,10 +101,6 @@ function partager() {
     partage.innerText = "LIEN COPIÉ !";
 }
 
-
-
-  
-
 creerEquipe(def,mil,att);
-if (dict["nom_equipe"]) document.getElementById("nom_equipe").innerText = "ÉQUIPE : "+ dict["nom_equipe"].toUpperCase();
-if (dict["compo"]) document.getElementById("compo").innerText = "COMPOSITION : " + dict["compo"].replaceAll(",","-");
+if (dict["nom_equipe"]) document.getElementById("nom_equipe").innerText = "ÉQUIPE : "+ dict["nom_equipe"].toUpperCase(); // Nom d'équipe personnalisé
+if (dict["compo"]) document.getElementById("compo").innerText = "COMPOSITION : " + dict["compo"].replaceAll(",","-"); // Composition personnalisé

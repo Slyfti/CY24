@@ -60,11 +60,15 @@ body {
   fieldset > .equipe > div > div > .carte {
     width: 100%;  
     justify-self: center;
-    cursor:default;
   }
   
   fieldset > .equipe > div > div > .carte:hover {
-    transform: scale(1);
+    cursor: zoom-in;
+    transform: scale(1.5);
+  }
+
+  fieldset > .equipe > div > div:hover {
+    z-index: 3;
   }
   
   fieldset > .equipe > div > div > .carte > .overlay::before {
@@ -98,6 +102,7 @@ body {
     .image_haut {
       display: none;
     }
+    
     nav {
       height: unset;
       align-self: center;
