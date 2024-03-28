@@ -8,7 +8,7 @@
 
 
 /* Animation de rotation 3D*/
-@keyframes rotation{
+@keyframes rotation { 
   0% {
       transform: rotate3d(0,1,0,0deg);
       -webkit-transform: rotate3d(0,1,0,0deg);
@@ -16,7 +16,18 @@
 
   100% {
       transform: rotate3d(0,1,0,360deg);
+      -webkit-transform: rotate3d(0,1,0,360deg);
+  }
+}
 
+@keyframes apparition {
+  0% {
+      transform: rotate3d(0,1,0,0deg);
+      -webkit-transform: rotate3d(0,1,0,0deg);
+  }
+
+  100% {
+      transform: rotate3d(0,1,0,360deg);
       -webkit-transform: rotate3d(0,1,0,360deg);
   }
 }
@@ -137,7 +148,7 @@ p {
 }
 
 .carte > .overlay > img {
-  animation: rotation 450ms ease;
+  animation: apparition 450ms ease;
 }
 
 /* CARTE vide*/
