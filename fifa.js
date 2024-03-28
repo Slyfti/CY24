@@ -293,6 +293,8 @@ function positionner(e) {
   if (e.ctrlKey && carte.parentNode == selection) {
     let premiereCarteVide = document.querySelector(".vide");
     selectionner(premiereCarteVide);
+
+    // Met la catégorie sur les cartes afin qu'elle savent ou retourner quand on les virera
     premiereCarteVide.dataset.value = categorie;
     carte.dataset.value = categorie;
     
@@ -349,13 +351,12 @@ function allowDrop(e) {
 function dropAnnule(e) {
   carte_clique = document.getElementById("carte_clique");
   if (carte_clique !=null) carte_clique.id = "";
-
 }
 
-//
 
 
 
+// Met à jour les variables compositions
 function miseAJourCompo() {
   let compo = document.getElementById("compo");
   listeInfo = compo.value.split(",");
@@ -367,16 +368,14 @@ function miseAJourCompo() {
 
 
 
-
+// Affiche les joueurs de la catégorie choisie
 function afficherJoueurs() {
-  // creerEquipeVide(nombreDefenseur,nombreMilieu,nombreAttaquant);
   let carte;
   let joueur;
   let overlay;
   if  (document.getElementById("carte_clique")!= null) document.getElementById("carte_clique").id = "";
   let categorie = document.getElementById("categorie").value;
   let joueurs = selection.children;
-  // selection.innerHTML = "";
   for (let i=0;i<joueurs.length;i++) {
     joueurs[i].dataset.value == categorie ? joueurs[i].style.display = "flex": joueurs[i].style.display = "none";
   }
@@ -385,6 +384,7 @@ function afficherJoueurs() {
   
 }
 
+// Réinitialise TOUT
 function reinitialiser() {
   creerJoueurs();
   miseAJourCompo();
@@ -392,7 +392,7 @@ function reinitialiser() {
   creerEquipeVide(nombreDefenseur,nombreMilieu,nombreAttaquant);
 }
 
-
+// Ajoute la carte au formulaire invisible
 function ajouterCarteForm(infos,nom_carte,role) {
   let info = document.createElement("input");
   info.name = role;
