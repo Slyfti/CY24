@@ -42,7 +42,6 @@ function ajouterOnClick() {
 // Liste des joueurs masculins
 var joueursH = [
   'Pessi',
-  'Dante',
   'Ronaldo',
   'alisson',
   'brunoFernandes',
@@ -103,15 +102,26 @@ var joueursA = [
 
 // Liste des joueurs de l'OGC Nice (qui ont une carte ultimate team)
 var joueursNice = [
-
+  'boulhendi',
   'mendy',
+  'balde',
+  'bouanani',
   'guessand',
   'bekaBeka',
+  'bulka',
+  'atal',
   'bard',
+  'rosario',
   'perraud',
+  'ndayishimiye',
+  'lotomba',  
   'claude-maurice',
+  'boga',
   'sanson',
+  'boudaoui',
+  'moffi',
   'diop',
+  'Dante',
   'todibo',
   'thuram',
   'laborde'
