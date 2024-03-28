@@ -1,9 +1,13 @@
+
+/* Police Montserrat */
 @font-face {
   font-family: Montserrat;
   src: url(content/Montserrat-VariableFont_wght.ttf) format("truetype");
   font-display: block;
 }
 
+
+/* Animation de rotation 3D*/
 @keyframes rotation{
   0% {
       transform: rotate3d(0,1,0,0deg);
@@ -17,17 +21,6 @@
   }
 }
 
-@keyframes apparition {
-  0% {
-      transform: rotate3d(0,1,0,0deg);
-      -webkit-transform: rotate3d(0,1,0,0deg);
-  }
-
-  100% {
-      transform: rotate3d(0,1,0,360deg);
-      -webkit-transform: rotate3d(0,1,0,360deg);
-  }
-}
 
 html,body {
   min-width: 100vw;
@@ -48,12 +41,11 @@ body {
   font-family:'Montserrat','Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color:white;
   background: linear-gradient(0.75turn, #6f00ff, #868cec);
-  
 }
 
 
 
-
+/* Titres */ 
 h1{
   margin-left:5px;
 	font-family: 'Montserrat', sans-serif;
@@ -76,11 +68,12 @@ h3{
   color: rgb(255, 255, 255);
 }
 
+/* Paragraphe */ 
 p {
   text-justify:auto;
 }
 
-
+/* Image CY24 sur PC */ 
 .image_haut {
   width: 35%;
   align-self: center;
@@ -91,16 +84,19 @@ p {
 
 /* ref: https://www.youtube.com/watch?time_continue=3&v=p9nBDZisuio&embeds_referring_euri=https%3A%2F%2Fwww.dhnet.be%2F&source_ve_path=MTM5MTE3LDIzODUx&feature=emb_title */ 
 
-
+/* Image du joueur dans la carte */ 
 .joueur{
   height: 9em; /* Définit la taille de la carte (important) */
 }
 
+
+/* Overlay (blanc un peu transparent) au dessus de la carte (encadré vert)*/ 
 .overlay {
   height: 100%;
   width: 105%;
   position: relative;
 }
+
 .overlay:before {
   content: "";
   position: absolute;
@@ -122,12 +118,12 @@ p {
   opacity: 0.5;
 }
 
+
 /* CARTE (englobe l'image et l'overlay)*/
 .carte {
   flex-shrink: 0;
   transition: all 0.25s;
 }
-
 
 
 .carte:hover {
@@ -141,9 +137,10 @@ p {
 }
 
 .carte > .overlay > img {
-  animation: apparition 450ms ease;
+  animation: rotation 450ms ease;
 }
 
+/* CARTE vide*/
 .vide {
   margin: unset;
   cursor: pointer;
@@ -155,7 +152,7 @@ p {
   
 }
 
-
+/* Carte sélectionné, mis en valeur avec une taille x1.2 et décale les autres cartes */ 
 #carte_clique {
     z-index: 2;
     flex-shrink: 0;
@@ -166,11 +163,11 @@ p {
 }
 
 
-
+/* Animation joué quand la carte se fait sélectionner */
 #carte_clique > .overlay > img {
   animation: rotation 450ms ease;
 }
-
+/* Overlay devient vert (filter unset) et se ressert*/
 #carte_clique > .overlay::before {
   filter:unset;
   background-position: center;
@@ -190,8 +187,6 @@ p {
 
 
 /* INTERFACE (englobe la navigation et l'équipe) */ 
-
-
 .interface {
   margin:0px;
   padding: 0%;
@@ -205,7 +200,6 @@ p {
 
 
 /* Equipe (à droite)*/
-
 .equipe {
   justify-self: flex-end;
   width: 55%;
@@ -221,6 +215,7 @@ p {
   
 }
 
+/* Ligne dans l'équipe*/
 .equipe > div {
   align-self: center;
   display: flex;
@@ -229,6 +224,7 @@ p {
   justify-content: space-evenly
 }
 
+/* Cartes dans l'équipe */
 .equipe > div > .carte {
   display: flex;
   flex-direction: row;
@@ -238,16 +234,10 @@ p {
 }
 
 
-
-
-
-
-
 /* SELECTION (partie basse) */
-
 .selection{
-  position:sticky;
-  bottom: 0;
+  position:sticky; /* Reste toujours sur la page*/
+  bottom: 0; /* Toujours en bas*/
 
 
   width: 100%;
@@ -265,7 +255,7 @@ p {
   overflow-x: auto;
   align-items: end;
 
-  scrollbar-color: #81ffa7 white;
+  scrollbar-color: #81ffa7 white; /* Change couleur de la barre scroll*/
   background-image: url("content/img/topography3.webp");
   background-size: 25%;
   background-color: #25252517;
@@ -277,7 +267,7 @@ p {
 
 .selection > .carte {
   flex-shrink: 0;
-  margin-right: -15px;
+  margin-right: -15px; /* Les cartes sont un peu empilés entres elles*/
   transition: all 0.25s;
 }
 
@@ -286,7 +276,7 @@ p {
   z-index: 3;
 
   
-  transform: scale(1.2);
+  transform: scale(1.2); /* Aggrandit la carte quand on passe la souris dessus*/
   -webkit-transform: scale(1.2);
   margin-right:0px;
   transition: all 0.2s;
@@ -316,7 +306,7 @@ nav {
 }
 
 
-#menu {
+#menu { /* Formulaire englobant les boutons*/
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
@@ -326,7 +316,7 @@ nav {
 
 
 
-
+/* BOUTONS */
 .bouton, #reset, #valider {
   display: flex;
   justify-content: center;
@@ -346,13 +336,6 @@ nav {
   flex-grow: 3;
 } 
 
-
-
-
-
-
-
-
 .bouton:hover {
   cursor: pointer;
   background-color: #a8f7bf;
@@ -363,9 +346,6 @@ nav {
 
 
 } 
-
-
-
 
 option {
   font-family: Montserrat;
@@ -395,7 +375,6 @@ option {
   transition: all 0.2s;
 } 
 
-
 #nom_equipe {
   width: 100%;
   flex-grow: 3;
@@ -415,8 +394,11 @@ option {
 
 }
 
+/* ----------------------------------------------------------
 
-/* CSS qui concerne les écrans de téléphones*/
+CSS qui concerne les écrans de téléphones
+
+---------------------------------------------------------- */ 
 @media screen and (max-width: 1200px) {
   body {
     font-size: 1.8em;
@@ -432,7 +414,6 @@ option {
     align-items: center;
     align-content: space-around;
     padding-right: 0%;
-
   }
 
   .image_haut {
@@ -463,7 +444,6 @@ option {
   .equipe {
     margin:0px;
     width: 100%;
-
   }
 
 
@@ -476,15 +456,10 @@ option {
     min-width: 200px;
     max-width: 100%;
     flex-grow: 3;
-
   }
 
 
   .overlay:hover:before {
     opacity: 0;
   }
-
-
-  
-
 }
