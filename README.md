@@ -1,4 +1,4 @@
-# [CY24](slyfti.github.io/CY24/)
+# [CY24](https://slyfti.github.io/CY24/) 
 UI for a football team builder!
 
 ## Crée l'équipe footballistique de tes rêves !
